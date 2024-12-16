@@ -1,0 +1,3 @@
+hydrogram
+python-dotenv
+asyncio
