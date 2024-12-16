@@ -10,10 +10,15 @@ COPY . /app
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
+    gcc \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install any needed packages specified in requirements.txt
+# Install pip requirements
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Create session directory
+RUN mkdir -p ./session
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
