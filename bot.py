@@ -20,6 +20,18 @@ API_TOKEN = os.getenv('BOT_TOKEN')
 API_ID = os.getenv('API_ID')
 API_HASH = os.getenv('API_HASH')
 
+# Create the Hydrogram client with TGCrypto
+bot = Client(
+    name="great_cinemas_bot",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=API_TOKEN,
+    # Explicitly use TGCrypto for improved performance
+    plugins={"root": "plugins"},  # Optional: for future plugin support
+    workdir="./session",  # Store session files
+    max_concurrent_transmissions=5  # Improved concurrent handling
+)
+
 # Create the Hydrogram client
 bot = Client(
     name="great_cinemas_bot",
